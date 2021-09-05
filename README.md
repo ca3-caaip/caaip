@@ -18,7 +18,7 @@ CAAIP try to make Crypto Asset Accounting standardize.
 
 
 |time|platform|transaction_id|debit title|debit amount|credit title|credit amount|comment|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|:----|:----|:----|:----|:----|:----|:----|:----|
 |2021-09-04 2:31:29|ethereum_kyber|0x29516785dd48a0a1393b169f2c2440985285ee1d8c7c456f03d44b73d0e6db03|SPOT|{0xb4efd85c19999d84251304bda99e90b92300bd93:105.80922530000567705}|SPOT|{0xdac17f958d2ee523a2206206994597c13d831ec7:2250}|105.80922530000567705RPL購入 2250USDT売却|
 |2021-09-04 2:31:29|ethereum_kyber|0x29516785dd48a0a1393b169f2c2440985285ee1d8c7c456f03d44b73d0e6db03|FEE|{ETH:0.00001}|SPOT|{ETH:0.00001}|0.00001ETH手数料支払|
 
@@ -26,7 +26,7 @@ CAAIP try to make Crypto Asset Accounting standardize.
 
 
 |time|platform|transaction_id|debit title|debit amount|credit title|credit amount|comment|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|:----|:----|:----|:----|:----|:----|:----|:----|
 |2021-08-26 12:21:59|ethereum_aave|0xa1d956348e7b51fc47740082e2711e59ee152b7af0787455e99f3cd684b57264|CREDIT|{0xdac17f958d2ee523a2206206994597c13d831ec7:50000}|SPOT|{0xdac17f958d2ee523a2206206994597c13d831ec7:50000}|50000USDT貸出|
 |2021-08-26 12:21:59|ethereum_aave|0xa1d956348e7b51fc47740082e2711e59ee152b7af0787455e99f3cd684b57264|FEE|{ETH:0.00001}|SPOT|{ETH:0.00001}|0.00001ETH手数料支払|
 |2021-08-27 12:21:59|ethereum_aave|0xa1d956348e7b51fc47740082e2711e59ee152b7af0787455e99f3cd684b57265|SPOT|{0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48:30000}|DEBT|{0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48:30000}|30000USDC借入|
