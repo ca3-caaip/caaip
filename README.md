@@ -6,7 +6,7 @@ CAAIP try to make Crypto Asset Accounting standardize.
 
 
 
-## CAAIP1 journal for Crypto Asset Accounting
+## CAAIP1 journal for Crypto Asset Accounting a.k.a CAAJ
 
 ### journal format
 
