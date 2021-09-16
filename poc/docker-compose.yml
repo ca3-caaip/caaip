@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  caaj_poc:
+    container_name: caaj_poc
+    build: ./
+    volumes:
+      - ./src:/app
+      - ./output:/app/output
+    command: /bin/bash
+    tty: true
