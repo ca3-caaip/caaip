@@ -10,7 +10,7 @@ class TestBlock(unittest.TestCase):
   def test_get_swap_transacted(self):
     block_json = json.loads(Path('%s/../testdata/block_swap_within_batch_v4.json' % os.path.dirname(__file__)).read_text())
     block = Block(block_json)
-    swap_transacted = block.get_swap_transacted(1, 18772, 15644)[0]
+    swap_transacted = block.get_swap_transacted(1, 18772, 15644)
     attributes = swap_transacted['attributes']
     self.assertEqual(swap_transacted['type'], 'swap_transacted')
     self.assertEqual(attributes[0]['key'], 'pool_id')
@@ -23,7 +23,7 @@ class TestBlock(unittest.TestCase):
   def test_get_deposit_to_pool(self):
     block_json = json.loads(Path('%s/../testdata/block_deposit_within_batch_v4.json' % os.path.dirname(__file__)).read_text())
     block = Block(block_json)
-    deposit_to_pool = block.get_deposit_to_pool(1, 18772, 15644)[0]
+    deposit_to_pool = block.get_deposit_to_pool(1, 18772, 15644)
     attributes = deposit_to_pool['attributes']
     self.assertEqual(deposit_to_pool['type'], 'deposit_to_pool')
     self.assertEqual(attributes[0]['key'], 'pool_id')

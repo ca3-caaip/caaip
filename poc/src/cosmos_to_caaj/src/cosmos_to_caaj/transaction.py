@@ -1,5 +1,5 @@
 import json
-from block import *
+from cosmos_to_caaj.message import *
 from decimal import *
 from datetime import datetime as dt
 import logging
@@ -30,33 +30,8 @@ class Transaction:
       self.fail = True
       return
 
-    if len(transaction['data']['logs']) > 1:
-      raise ValueError(f'logs has more than one. \n {json.dumps(transaction)}')
-    self.events = transaction['data']['logs'][0]['events']
-  
-  @classmethod
-  def get_attribute_value(cls, attributes, key):
-    return list(filter(lambda x: x['key'] == key, attributes))[0]['value']
-
-  @classmethod
-  def get_event_value(cls, events, type):
-    event = list(filter(lambda x: x['type'] == type, events))
-    if len(event) == 0:
-      return None
-    else:
-      return list(filter(lambda x: x['type'] == type, events))[0]
-
-  @classmethod
-  def convert_uamount_amount(cls, uatom):
-    atom = Decimal(int(uatom.replace('uatom', ''))) / Decimal(1000000)
-    return atom
-
-  def get_action(self):
-    if self.fail:
-      raise RuntimeError('this transaction is failed')
-    message = list(filter(lambda x: x['type'] == 'message', self.events))[0]
-    action = Transaction.get_attribute_value(message['attributes'], 'action')
-    return action
+  def get_messages(self):
+    return list(map(lambda x: Message(x['events'], self.transaction['data']['height']), self.transaction['data']['logs']))
 
   def get_transfers(self, recipient):
     transfers = list(filter(lambda x: x['type'] == 'transfer' and x['recipient'] == recipient, self.events))
@@ -65,6 +40,12 @@ class Transaction:
   def get_fail(self):
     return self.fail
   
+  def get_transaction_id(self):
+    return self.transaction['data']['txhash'].lower()
+
+  def get_time(self):
+    return self.time.strftime('%Y-%m-%d %H:%M:%S')
+
   def get_caaj(self, subject_address):
     try:
       action = self.get_action()
