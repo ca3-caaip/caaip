@@ -29,3 +29,6 @@ class Block:
 
   def get_deposit_to_pool(self, pool_id, batch_index, msg_index):
     return CosmosUtil.get_event_value(self.end_block_events, 'deposit_to_pool')
+
+  def get_withdraw_from_pool(self, pool_id, batch_index, msg_index):
+    return CosmosUtil.get_event_value(self.end_block_events, 'withdraw_from_pool')

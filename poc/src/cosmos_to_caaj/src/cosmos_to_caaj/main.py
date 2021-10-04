@@ -41,8 +41,9 @@ def main():
         'https://api.cosmostation.io/v1/account/new_txs/%s' % address,
         params={'from': last_id, 'limit': 50})
     transactions = response.json()
-    num_transactions = len(transactions) 
+    num_transactions = len(transactions)
     for transaction in transactions:
+      last_id = transaction['header']['id']
       if cosmos.can_handle(transaction) == False:
         raise ValueError('not cosmos transaction')
       caajs.extend(cosmos.get_caajs(transaction, address))

@@ -1,4 +1,6 @@
 from decimal import *
+import re
+from typing import Union
 
 class CosmosUtil:
   @classmethod
@@ -17,3 +19,10 @@ class CosmosUtil:
   def convert_uamount_amount(cls, uatom):
     atom = Decimal(int(uatom.replace('uatom', ''))) / Decimal(1000000)
     return atom
+  
+  @classmethod
+  def split_amount(cls, amount_coin:str)-> Union[Decimal, str]:
+    amount = re.findall(r'\d+', amount_coin)[0]
+    coin = amount_coin[len(amount):]
+    coin = 'ATOM' if coin == 'uatom' else coin
+    return amount,coin
